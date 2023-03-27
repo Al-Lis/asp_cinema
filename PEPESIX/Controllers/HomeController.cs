@@ -122,6 +122,10 @@ namespace pitpm_pr1.Controllers
         {
             return View();
         }
+        public IActionResult Autorization(string Lastname, string Name, string Birthday, string Phone, string Password)
+        {
+
+        }
        
         public IActionResult Toyota_Mark_II()
         {

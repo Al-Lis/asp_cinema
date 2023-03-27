@@ -1,9 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Registration";
-} 
+﻿
 
 <script src="~/js/site_reg.js" asp-append-version="true"></script>
- <form method="post">
+ <form method="post" asp-controller="Home" asp-action="Registration">
 @* <div id="zatemnenie">*@
     <  <div id="okno"><a id="aut">
         Регистрация</a><br>
@@ -46,7 +44,7 @@
                 <p>
                 <input type="submit" name="dannie" />
                 </p>
-        <a href="#" asp-action="Registr" >Закрыть окно</a>
+        <a href="#" asp-controller="Home" asp-action="Registr" >Закрыть окно</a>
       </div>
    @* </div>
      
