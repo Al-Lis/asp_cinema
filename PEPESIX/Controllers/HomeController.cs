@@ -4,6 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using pitpm_pr1.Models;
 using pitpm_pr1.Controllers;
+using Microsoft.Extensions.Configuration;
+using Dapper;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using System.Numerics;
 
 namespace pitpm_pr1.Controllers
 {
@@ -61,14 +66,42 @@ namespace pitpm_pr1.Controllers
         private readonly ILogger<HomeController> _logger;
         
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IConfiguration config)
         {
             _logger = logger;
+            _config = config;
+        }
+        public IDbConnection Connection
+        {
+            get
+            {
+                return new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+            }
+        }
+        private List<User> GetAllUsers()
+        {
+            using(IDbConnection db = Connection)
+            {
+                var result = db.Query<User>("Select * from Users").ToList();//получение листа
+                return result;
+            }
+        }
+        public class User
+        {
+            public int user_id { get; set; }
+            public string surname { get; set; }
+            public string name { get; set; }
+            public long phone_numb { get; set; }
+            public Nullable<System.DateTime> date_birthday { get; set; }
+            public string password { get; set; }
+            public bool admin_check { get; set; }
+
         }
 
         public IActionResult Index()
         {
-            return View();
+            var items = GetAllUsers();
+            return View(items);
         }
 
         public IActionResult Privacy()
@@ -89,7 +122,7 @@ namespace pitpm_pr1.Controllers
         {
             return View();
         }
-
+       
         public IActionResult Toyota_Mark_II()
         {
             return View();
@@ -106,10 +139,7 @@ namespace pitpm_pr1.Controllers
         //public IActionResult class close(){
         //    }
 
-        //public IActionResult Registr()
-        //{
-        //    return View();
-        //}
+        
         [HttpPost]
 
 
@@ -127,5 +157,6 @@ namespace pitpm_pr1.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }
