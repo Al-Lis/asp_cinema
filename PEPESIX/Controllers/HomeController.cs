@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-//using PEPESIX.Models;
 using pitpm_pr1.Models;
 using pitpm_pr1.Controllers;
 using Microsoft.Extensions.Configuration;
@@ -14,36 +12,59 @@ using System.Numerics;
 
 namespace pitpm_pr1.Controllers
 {
-    public class Car
+    public class User
     {
 
-        //public string Name;
-        //public string Mileage;
-        //public string Year;
-        //public Car(string Name, string Mileage, string Year)
-        //{
-        //    this.Name = Name;
-        //    this.Mileage = Mileage;
-        //    this.Year = Year;
-        //}
+        public string Lastname;
+        public string Name;
+        public string Birthday;
+        public string Phone;
+        public string Password;
+        public User(string Lastname, string Name, string Birthday, string Phone, string Password)
+        {
+            this.Lastname = Lastname;
+            this.Name = Name;
+            this.Birthday = Birthday;
+            this.Phone = Phone;
+            this.Password = Password;
+
+        }
     }
-    public class Cars
+    
+    public class Users
     {
-        //public static List<Car> All_cars = new List<Car>();
-        //public Cars()
-        //{
+        public static List<User> All_users = new List<User>();
+        public Users()
+        {
 
-        //}
-        //public static void AddCar(string Name, string Mileage, string Year)
-        //{
-        //    All_cars.Add(new Car(Name, Mileage, Year));
+        }
+        public static void AddUser(string Lastname, string Name, string Birthday, string Phone, string Password)
+        {
+           
+            Convert.ToDateTime(Birthday);
+            Convert.ToInt32(Phone);
 
-        //}
+           // if (Lastname != null & Name != null &  Birthday != null & Phone != null & Password != null)
+           // {
+           //     All_users.Add(new User(Lastname, Name, Birthday, Phone, Password)); 
+           // }
+           //else()
+
+        }
     }
+    //public class Close
+    //{
+    //    public static void Closes()
+    //    {
+
+    //    }
+        
+    //}
     public class HomeController : Controller
+
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IConfiguration _config;
+        
 
         public HomeController(ILogger<HomeController> logger, IConfiguration config)
         {
@@ -94,6 +115,11 @@ namespace pitpm_pr1.Controllers
         }
         public IActionResult Registr()
         {
+
+            return View();
+        }
+        public IActionResult Autorization()
+        {
             return View();
         }
        
@@ -101,6 +127,17 @@ namespace pitpm_pr1.Controllers
         {
             return View();
         }
+        //public class Close
+        //{
+        //    public IActionResult Registr()
+        //    {
+        //        return ViewCo
+        //    }
+
+        //}
+
+        //public IActionResult class close(){
+        //    }
 
         
         [HttpPost]
@@ -111,23 +148,9 @@ namespace pitpm_pr1.Controllers
 
         //    return View();
         //}
-        //[HttpPost]
-        //public IActionResult Registr(string Nazvanie, string Mileage, string Year, string fn, string fa, string fy) //вот это надо удалить 
-        //{
-        //    Cars.AddCar(Nazvanie, Mileage, Year);
-        //    for (int i = 0; i < Cars.All_cars.Count; i++)
-        //    {
-        //        if (fn == Cars.All_cars[i].Name)
-        //        {
-        //            ViewBag.N = Cars.All_cars[i].Name + ", ";
-        //            ViewBag.A = Cars.All_cars[i].Mileage + ", ";
-        //            ViewBag.Y = Cars.All_cars[i].Year + " ";
-        //        }
-        //    }
-        //    return View();
-        //}
-
-
+        [HttpPost]
+     
+       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
