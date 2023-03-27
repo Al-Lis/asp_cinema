@@ -1,28 +1,13 @@
-﻿<body>
+﻿@{
+    ViewData["Title"] = "Autorization";
+}
+
+<body>
     <script src="~/js/site_reg.js" asp-append-version="true"></script>
     <div id="Registr">
     <form method="post" id="registr_1">
         <div>
-           @* <p>
-                <label>Имя</label>
-            </p>
-            <p>
-                <input type="text" name="Name" />
-               
-            </p>
-            <p>
-                <label>Фамилия</label>
-            </p>
-             <p>
-                <input type="text" name="Mileage" />
-            </p>
-            <p>
-               <label for="date">Дата рождения: </label>
-            </p>
-             <p>
-               <input type="date" id="date" name="date"/>
-            </p>
-            *@
+          
             
         
             <p>
@@ -44,33 +29,28 @@
                 <p>
                 <input type="submit" name="dannie" />
                 </p>
-            @*<p>
-                <label>Find Year:</label>
-            </p>
-             <p>
-                <input type="text" name="fy" />
-                <input type="submit" name="car3"/>
-            </p>*@
-            <style>
-      
-      
-    </style>
- 
 
-    <div id="zatemnenie">
+           </div>
+           <a name="registr" id="reg1" asp-action="Autorization"> Регистрация</a>
+           </form>
+             
+           </body>
+          
+
+   @* <div id="zatemnenie">
       <div id="okno"><a id="aut">
         Регистрация</a><br>
          <a>
                 <label>Фамилия</label>
             </a>
              <p>
-                <input type="text" name="Mileage" />
+                <input type="text" name="Lastname" />
             </p>
             <a>
                <label for="date">Дата рождения: </label>
             </a>
              <p>
-               <input type="date" id="date" name="date"/>
+               <input type="date" id="date" name="birthday"/>
             </p>
             
             <hr/>
@@ -101,4 +81,4 @@
 
     </form>
 </div>
-</body>
+</body>*@

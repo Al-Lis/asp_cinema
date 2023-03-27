@@ -1,30 +1,58 @@
-﻿@*<div id="Registr">
-    
-    
-    
-    <div id="RightColumn1">
-@*<h2>Mazda RX-7</h2>
-<p>Двигатель: <a href="#">3.0 л/ 280 л.с. / Бензин</a> </p>
-<p>Год выпуска: <strong>1993 </strong></p>
-<p>Пробег: <strong>15 700 км </strong>.</p>
-<p>Привод: <strong>задний </strong> </p>
-<p>Коробка: <strong>автомат</strong> </p>
-<p>Руль: <strong>правый</strong></p>*@
-@*</div>
-<div id="LeftColumn">
-    <p>
-       <img src="https://s1.auto.drom.ru/photo/3jeZgIBxX6DkHrXvkKvkubCHFTLaFXlTAoAiQ9BphRNYlTDvaDet7c7dV19Z9GH071Yml_AyQyZmEAWkL5dgP-nSjRIS.jpg" 
-       height="400" width="620"  class="mazda" />
-    </p>
-    <form action="https://krasnodar.drom.ru/mazda/rx-7/49664209.html " target="_blank">
-    <button  class="srcc">
-       
-         <a>
-             Перейти к объявлению
-             </a>
-             
-         </p></button>
-       </form>
-       </div>
+﻿@{
+    ViewData["Title"] = "Registration";
+} 
 
-</div>*@*
+<script src="~/js/site_reg.js" asp-append-version="true"></script>
+ <form method="post">
+@* <div id="zatemnenie">*@
+    <  <div id="okno"><a id="aut">
+        Регистрация</a><br>
+        
+         <a>
+                <label>Фамилия</label>
+            </a>
+             <p>
+                <input type="text" name="Lastname" />
+            </p>
+             <a>
+                <label>Имя</label>
+            </a>
+             <p>
+                <input type="text" name="Name" />
+            </p>
+            <a>
+               <label for="date">Дата рождения: </label>
+            </a>
+             <p>
+               <input type="date" id="date" name="Birthday"/>
+            </p>
+            
+            <hr/>
+        
+            <a>
+                <label for="phone">Телефон: </label>
+            </a>
+             <p>
+                 <label id="seven">+7</label>
+               <input type="tel" placeholder="(XXX)-XXX-XXXX" maxlength="10" id="phone" name="Phone"/>
+            </p>
+            <div class="password">
+                <p>
+	            <input type="password" id="password-input" placeholder="Введите пароль" name="Password">
+                </p></div>
+                <p>
+                <label><input type="checkbox" class="password-checkbox"><a>Показать пароль</a></label>
+                </p>
+                <p>
+                <input type="submit" name="dannie" />
+                </p>
+        <a href="#" asp-action="Registr" >Закрыть окно</a>
+      </div>
+   @* </div>
+     
+    <a href="#zatemnenie">Регистрация</a>
+        </div>*@
+        
+        </div>
+    </form>
+
