@@ -1,43 +1,57 @@
-@{
+@*@{
     ViewData["Title"] = "Autorization";
 }
 
-<body>
+<div class="container d-flex justify-content-center">
     <script src="~/js/site_reg.js" asp-append-version="true"></script>
-    <div id="Registr">
-    <form method="post" id="registr_1">
-        <div>
-          
-            
-        
-            <p>
-                <label for="phone">Телефон: </label>
-            </p>
-             <p>
-                 <label id="seven">+7</label>
-               <input type="tel" placeholder="(XXX)-XXX-XXXX" maxlength="10" id="phone" name="phone"/>
-            </p>
 
-            <hr/>
-            <div class="password">
+    <div>
+
+        <form  id="aut" 
+          
+          asp-controller="Account"
+          asp-action="Autorization"
+          method="post">
+
+            <div>
                 <p>
-	            <input type="password" id="password-input" placeholder="Введите пароль" name="password">
-                </p></div>
-                <p>
-                <label><input type="checkbox" class="password-checkbox">Показать пароль</label>
+                    <label for="phone">Телефон: </label>
                 </p>
                 <p>
-                <input type="submit" name="dannie" />
+                    <label id="seven">+7</label>
+                    <input type="tel" placeholder="(XXX)-XXX-XXXX" 
+                    maxlength="10" id="phone" name="phone" />
                 </p>
 
-           </div>
-           <a name="registr" id="reg1" asp-action="Autorization"> Регистрация</a>
-           </form>
-             
-           </body>
-          
-     
-   @* <div id="zatemnenie">
+                <hr />
+                <div class="password">
+                    <p>
+                        <input type="password" id="password-input" 
+                        placeholder="Введите пароль" name="password">
+                    </p>
+                </div>
+                <p>
+                    <label><input type="checkbox" 
+                     class="password-checkbox">Показать пароль</label>
+                </p>
+                <p>
+                    <button type="submit" name="dannie">Авторизация</button>
+                    
+                </p>
+
+            </div>
+
+            <a name="registr" id="reg1" 
+            asp-action="Registration"
+            asp-controller="Account"> Регистрация</a> 
+
+        </form>
+        </div>
+</div>*@
+
+
+
+@* <div id="zatemnenie">
       <div id="okno"><a id="aut">
         Регистрация</a><br>
          <a>
@@ -52,9 +66,9 @@
              <p>
                <input type="date" id="date" name="birthday"/>
             </p>
-            
+
             <hr/>
-        
+
             <a>
                 <label for="phone">Телефон: </label>
             </a>
@@ -75,7 +89,7 @@
         <a href="#" class="close">Закрыть окно</a>
       </div>
     </div>
-     
+
     <a href="#zatemnenie">Регистрация</a>
         </div>
 

@@ -7,6 +7,24 @@
     @*<h1 class="display-4" >Страница выполнения практической работы по РПМ</h1>
     <p> <a class="anim" href="https://metanit.com/sharp/aspnet5/3.1.php">на основе технологии ASP.NET Core MVC</a></p>*@
     <div class="main_win">
-
+        @model List<ProjectLibrary.Models.Film> 
+ 
+@foreach (var film in Model) 
+{ 
+    <section>
+    <div> 
+        
+        <a asp-action="Film"><img src="@film.Image" width="225" height="275" /></a> 
+        <div>
+        <p>@film.Name</p> 
+        <p> 
+                <strong>@film.AgeRestriction</strong> 
+                <img id="img-add-to-cart" class="dobavit" src="~/img/buy1.png" width="20" height="20" /> 
+ 
+        </p> 
+        </div>
+    </div> 
+    </section>
+    }
     </div>
 </div>

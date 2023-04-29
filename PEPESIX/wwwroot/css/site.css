@@ -33,9 +33,11 @@ a {
 }
 .container {
     color: #44d9e8; /*צגוע רנטפעא*/
-    height:530px;
+    height:auto;
+    
     
 }
+
 footer {
     background-color: #6f42c1;
     color: dimgray;
@@ -101,15 +103,33 @@ footer {
     left: 0;
     display: none;
 }
-#okno {
+#registration-form {
+
+    margin-bottom:20px;
+    margin-top:20px;
+    width: 600px;
+    height: 770px;
+    scroll-behavior:auto;
+    text-align: center;
+    padding: 15px;
+    border: 3px solid #0000cc;
+    border-radius: 10px;
+    color:;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    background: #30115e;
+}
+#login-form {
     width: 600px;
     height: 550px;
     text-align: center;
     padding: 15px;
     border: 3px solid #0000cc;
     border-radius: 10px;
-    color: ;
-    position: absolute;
+    color:;
     top: 0;
     right: 0;
     bottom: 0;

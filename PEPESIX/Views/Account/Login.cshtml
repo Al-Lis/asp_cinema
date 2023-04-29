@@ -1,0 +1,122 @@
+﻿@model ProjectLibrary.Models.User
+
+@{
+    ViewData["Title"] = "Авторизация";
+}
+
+<div class="container d-flex justify-content-center">
+    
+    <form id="login-form" 
+          class="w-50 border p-3 fs-4 form"
+          asp-controller="Account"
+          asp-action="Login"
+          method="post">
+
+        <div class="row text-center">
+            <h2>
+                Вход в личный кабинет
+            </h2>
+            <div class="decor-line"></div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label class="fw-bold m-1"
+                       asp-for="PhoneNumb">
+                    Номер телефона
+                </label>
+                <input type="text"
+                       id="phone"
+                       asp-for="PhoneNumb"
+                       class="form-control py-2 fs-5"
+                       placeholder="Номер телефона">
+                <span asp-validation-for="PhoneNumb"
+                      class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label class="fw-bold m-1"
+                       asp-for="Password">
+                    Пароль
+                </label>
+                <input type="password"
+                       asp-for="Password"
+                       class="form-control py-2 fs-5 password-input"
+                       placeholder="Пароль">
+                <span asp-validation-for="Password"
+                      class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label>
+                    <input type="checkbox"
+                           id="showPassword"
+                           asp-for="Password"
+                           class="form-check-input">
+                    Показать пароль?
+                </label>
+            </div>
+        </div>
+
+        <div class="row mx-5 text-center">
+            <button type="submit"
+                    class="btn btn-danger fw-bold fs-4">
+                Войти
+            </button>
+            <a asp-area=""
+               asp-route-phone=""
+               asp-all-route-username=""
+               asp-controller="Account"
+               asp-action="Registration"
+               class="nav-link text-dark fs-5">
+                Нет аккаунта? Зарегистрируйтесь!
+            </a>
+        </div>
+    </form>
+    
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.password-input').attr('type', 'password');
+            $('#showPassword').change(function() {
+                if (this.checked) {
+                    $('.password-input').attr('type', 'text');
+                } else {
+                    $('.password-input').attr('type', 'password');
+                }
+            });
+        });
+
+
+        $('#login-form').submit(function(e) {
+            e.preventDefault();
+            var form = $(this);
+
+            $.ajax({
+                url: form.attr('action'),
+                type: 'POST',
+                data: form.serialize(),
+                success: function(response) {
+                    let user = response.user;
+                    if (response.success) {
+                        alert(response.alertMessage)
+
+                        /*if (user.adminCheck == 0) {
+                            window.location.href = '/Account/Login'
+                        }*/
+                        /* Роли! */
+                    } else {
+                        alert(response.alertMessage)
+                    }
+                }
+            });
+        });
+
+    </script>
+}

@@ -9,49 +9,50 @@ using Dapper;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Numerics;
+using ProjectLibrary.Models;
 
 namespace pitpm_pr1.Controllers
 {
-    public class User
-    {
+    //public class User
+    //{
 
-        public string Lastname;
-        public string Name;
-        public string Birthday;
-        public string Phone;
-        public string Password;
-        public User(string Lastname, string Name, string Birthday, string Phone, string Password)
-        {
-            this.Lastname = Lastname;
-            this.Name = Name;
-            this.Birthday = Birthday;
-            this.Phone = Phone;
-            this.Password = Password;
+    //    public string Lastname;
+    //    public string Name;
+    //    public string Birthday;
+    //    public string Phone;
+    //    public string Password;
+    //    public User(string Lastname, string Name, string Birthday, string Phone, string Password)
+    //    {
+    //        this.Lastname = Lastname;
+    //        this.Name = Name;
+    //        this.Birthday = Birthday;
+    //        this.Phone = Phone;
+    //        this.Password = Password;
 
-        }
-    }
+    //    }
+    //}
     
-    public class Users
-    {
-        public static List<User> All_users = new List<User>();
-        public Users()
-        {
+    //public class Users
+    //{
+    //    public static List<User> All_users = new List<User>();
+    //    public Users()
+    //    {
 
-        }
-        public static void AddUser(string Lastname, string Name, string Birthday, string Phone, string Password)
-        {
+    //    }
+    //    public static void AddUser(string Lastname, string Name, string Birthday, string Phone, string Password)
+    //    {
            
-            Convert.ToDateTime(Birthday);
-            Convert.ToInt32(Phone);
+    //        Convert.ToDateTime(Birthday);
+    //        Convert.ToInt32(Phone);
 
-           // if (Lastname != null & Name != null &  Birthday != null & Phone != null & Password != null)
-           // {
-           //     All_users.Add(new User(Lastname, Name, Birthday, Phone, Password)); 
-           // }
-           //else()
+    //       // if (Lastname != null & Name != null &  Birthday != null & Phone != null & Password != null)
+    //       // {
+    //       //     All_users.Add(new User(Lastname, Name, Birthday, Phone, Password)); 
+    //       // }
+    //       //else()
 
-        }
-    }
+    //    }
+    //}
     //public class Close
     //{
     //    public static void Closes()
@@ -69,39 +70,40 @@ namespace pitpm_pr1.Controllers
         public HomeController(ILogger<HomeController> logger, IConfiguration config)
         {
             _logger = logger;
-            _config = config;
+            //_config = config;
         }
-        public IDbConnection Connection
-        {
-            get
-            {
-                return new SqlConnection(_config.GetConnectionString("DefaultConnection"));
-            }
-        }
-        private List<User> GetAllUsers()
-        {
-            using(IDbConnection db = Connection)
-            {
-                var result = db.Query<User>("Select * from Users").ToList();//получение листа
-                return result;
-            }
-        }
-        public class User
-        {
-            public int user_id { get; set; }
-            public string surname { get; set; }
-            public string name { get; set; }
-            public long phone_numb { get; set; }
-            public Nullable<System.DateTime> date_birthday { get; set; }
-            public string password { get; set; }
-            public bool admin_check { get; set; }
+        //public IDbConnection Connection
+        //{
+        //    get
+        //    {
+        //        //return new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+        //    }
+        //}
+        //private List<User> GetAllUsers()
+        //{
+        //    using(IDbConnection db = Connection)
+        //    {
+        //        var result = db.Query<User>("Select * from Users").ToList();//получение листа
+        //        return result;
+        //    }
+        //}
+        //public class User
+        //{
+        //    public int user_id { get; set; }
+        //    public string surname { get; set; }
+        //    public string name { get; set; }
+        //    public long phone_numb { get; set; }
+        //    public Nullable<System.DateTime> date_birthday { get; set; }
+        //    public string password { get; set; }
+        //    public bool admin_check { get; set; }
 
-        }
+        //}
 
+        
         public IActionResult Index()
         {
-            var items = GetAllUsers();
-            return View(items);
+            var film = CinemaDbContext.GetContext().Films.ToList();
+            return View(film);
         }
 
         public IActionResult Privacy()

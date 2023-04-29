@@ -1,0 +1,164 @@
+﻿@model ProjectLibrary.Models.User
+
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<div class="container d-flex justify-content-center" >
+   
+    <form id="registration-form"
+            
+          class="w-50 border p-3 fs-4 form"
+          asp-controller="Account"
+          asp-action="Registration"
+          method="post">
+
+        <div class="row text-center">
+            <h2>
+                Регистрация нового аккаунта
+            </h2>
+            <div class="decor-line"></div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label class="fw-bold m-1">
+                    Ваша фамилия
+                </label>
+                <input type="text"
+                       asp-for="Surname"
+                       class="form-control py-2 fs-5"
+                       placeholder="Ваша фамилия">
+                <span asp-validation-for="Surname"
+                      class="text-danger">
+                </span>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label class="fw-bold m-1">
+                    Ваше имя
+                </label>
+                <input type="text"
+                       asp-for="Name"
+                       class="form-control py-2 fs-5"
+                       placeholder="Ваше имя">
+                <span asp-validation-for="Name"
+                      class="text-danger">
+                </span>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label class="fw-bold m-1"
+                       asp-for="DateBirthday">
+                    Дата рождения
+                </label>
+                <input type="date"
+                       asp-for="DateBirthday"
+                       class="form-control py-2 fs-5" />
+                <span asp-validation-for="DateBirthday"
+                      class="text-danger">
+                </span>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label class="fw-bold m-1"
+                       asp-for="PhoneNumb">
+                    Номер телефона
+                </label>
+                <input type="text"
+                       id="phone"
+                       asp-for="PhoneNumb"
+                       class="form-control py-2 fs-5"
+                       placeholder="Номер телефона">
+                <span asp-validation-for="PhoneNumb"
+                      class="text-danger">
+                </span>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label class="fw-bold m-1"
+                       asp-for="Password">
+                    Пароль
+                </label>
+                <input type="password"
+                       asp-for="Password"
+                       class="form-control py-2 fs-5 password-input"
+                       placeholder="Пароль">
+                <span asp-validation-for="Password"
+                      class="text-danger">
+                </span>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label>
+                    <input type="checkbox"
+                           id="showPassword"
+                           asp-for="Password"
+                           class="form-check-input">
+                    Показать пароль?
+                </label>
+            </div>
+        </div>
+
+        <div class="row mx-5 text-center">
+            <button type="submit"
+                    class="btn btn-danger fw-bold fs-4">
+                Зарегистрироваться
+            </button>
+            <a asp-area=""
+               asp-route-phone=""
+               asp-all-route-username=""
+               asp-controller="Account"
+               asp-action="Login"
+               class="nav-link text-dark fs-5">
+                Уже есть аккаунт? Войдите!
+            </a>
+        </div>
+    </form>
+    
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.password-input').attr('type', 'password');
+            $('#showPassword').change(function() {
+                if (this.checked) {
+                    $('.password-input').attr('type', 'text');
+                } else {
+                    $('.password-input').attr('type', 'password');
+                }
+            });
+        });
+
+        $('#registration-form').submit(function(e) {
+            e.preventDefault();
+            var form = $(this);
+
+            $.ajax({
+                url: '@Url.Action("Registration", "Account")',
+                type: 'POST',
+                data: form.serialize(),
+                success: function(response) {
+                    if (response.success) {
+                        alert(response.alertMessage)
+                        window.location.href = '/Account/Login'
+                    } else {
+                        alert(response.alertMessage)
+                    }
+                }
+            })
+        })
+
+    </script>
+}

@@ -1,58 +1,69 @@
-﻿@{
+﻿@*@{
     ViewData["Title"] = "Registration";
-} 
+} *@
 
-<script src="~/js/site_reg.js" asp-append-version="true"></script>
- <form method="post">
-@* <div id="zatemnenie">*@
-    <  <div id="okno"><a id="aut">
-        Регистрация</a><br>
-        
-         <a>
-                <label>Фамилия</label>
-            </a>
-             <p>
-                <input type="text" name="Lastname" />
+@*<script src="~/js/site_reg.js" asp-append-version="true"></script>*@
+@*<form method="post">*@
+    @* <div id="zatemnenie">*@
+   @* <  <div id="okno">
+        <a id="aut">
+            Регистрация
+        </a><br>
+
+        <a>
+            <label>Фамилия</label>
+        </a>
+        <p>
+            <input type="text" name="Lastname" />
+        </p>
+        <a>
+            <label>Имя</label>
+        </a>
+        <p>
+            <input type="text" name="Name" />
+        </p>
+        <a>
+            <label for="date">Дата рождения: </label>
+        </a>
+        <p>
+            <input type="date" id="date" name="Birthday" />
+        </p>
+
+        <hr />
+
+        <a>
+            <label for="phone">Телефон: </label>
+        </a>
+        <p>
+            <label id="seven">+7</label>
+            <input type="tel" placeholder="(XXX)-XXX-XXXX" maxlength="10" id="phone" name="Phone" />
+        </p>
+        <div class="password">
+            <p>
+                <input type="password" id="password-input" placeholder="Введите пароль" name="Password">
             </p>
-             <a>
-                <label>Имя</label>
-            </a>
-             <p>
-                <input type="text" name="Name" />
-            </p>
-            <a>
-               <label for="date">Дата рождения: </label>
-            </a>
-             <p>
-               <input type="date" id="date" name="Birthday"/>
-            </p>
-            
-            <hr/>
-        
-            <a>
-                <label for="phone">Телефон: </label>
-            </a>
-             <p>
-                 <label id="seven">+7</label>
-               <input type="tel" placeholder="(XXX)-XXX-XXXX" maxlength="10" id="phone" name="Phone"/>
-            </p>
-            <div class="password">
-                <p>
-	            <input type="password" id="password-input" placeholder="Введите пароль" name="Password">
-                </p></div>
-                <p>
-                <label><input type="checkbox" class="password-checkbox"><a>Показать пароль</a></label>
-                </p>
-                <p>
-                <input type="submit" name="dannie" />
-                </p>
-        <a href="#" asp-action="Registr" >Закрыть окно</a>
-      </div>
-   @* </div>
-     
-    <a href="#zatemnenie">Регистрация</a>
-        </div>*@
-        
         </div>
-    </form>
+        <p>
+            <label><input type="checkbox" class="password-checkbox"><a>Показать пароль</a></label>
+        </p>
+        <p>
+            <input type="submit" name="dannie" />
+        </p>
+        <a href="#" asp-action="Registr">Закрыть окно</a>
+        <a asp-area=""
+           asp-route-phone=""
+           asp-all-route-username=""
+           asp-controller="Account"
+           asp-action="Registration"
+           class="nav-link text-dark fs-5">
+            Нет аккаунта? Зарегистрируйтесь!
+        </a>
+    </div>*@
+    @* </div>
 
+    <a href="#zatemnenie">Рег=>истрация</a>
+    </div>*@
+
+    @*  </div>*@
+@*</form>
+*@
