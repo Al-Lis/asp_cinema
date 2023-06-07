@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "pitpm_pr1", "PEPESIX\pitpm_pr1.csproj", "{EC9C1332-57EB-405D-9110-A8EBA82D49BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectLibrary", "ProjectLibrary\ProjectLibrary.csproj", "{EAB6BE9F-51C9-41DD-805B-06E4CFD5B103}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectLibrary", "ProjectLibrary\ProjectLibrary.csproj", "{EAB6BE9F-51C9-41DD-805B-06E4CFD5B103}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

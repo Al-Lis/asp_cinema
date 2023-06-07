@@ -1,0 +1,47 @@
+﻿@model ProjectLibrary.Models.User
+
+@{
+    ViewData["Title"] = "Панель Администратора";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div>
+    @foreach (var item in ViewBag.Sessions)
+
+    {
+        <div class="card border-light mb-3" style="max-width: 220rem;">
+            <section>
+
+                <div style="margin-left:1%; margin-right:1%; margin-top:1%; margin-bottom:1%">
+                    <div class="card-header" onclick="GetSessionById(@item.SessionId)"><strong>Сеанс</strong></div>
+                    <h4 class="card-title">Дата и время сеанса: @item.DateTime.ToString("dd/MM/yyyy HH:mm")</h4>
+                    <p class="card-text">Цена: @item.Price.ToString("0")</p>
+                </div>
+            </section>
+        </div>
+    }
+</div>
+
+<style>
+    .card-header {
+        font-size: 16pt;
+    }
+
+    .card {
+        background-color: transparent;
+        text-shadow: 0 0 1px rgba(255, 255, 255, 0.3), 0 0 2px rgba(255, 255, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+
+    .mb-3 {
+        margin-bottom: 1rem !important;
+    }
+
+    .border-light {
+        --bs-border-opacity: 1;
+        border-color: rgba(var(--bs-light-rgb), var(--bs-border-opacity)) !important;
+    }
+
+    .card.border-light {
+        box-shadow: 0 0 2px rgba(68, 217, 232, 0.9), 0 0 4px rgba(68, 217, 232, 0.4), 0 0 1rem rgba(68, 217, 232, 0.3) 0 0 4rem rgba(68, 217, 232, 0.1);
+    }
+</style>

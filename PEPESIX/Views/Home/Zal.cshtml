@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "Cinema Page";
+}
+
+<div class="cin1">
+    <h2 style="margin-bottom:3%; margin-top:3%; text-align:center;">Схема зала</h2>
+    <div>
+        <h3 style="width:30px; margin-bottom:2.5%;">1</h3>
+        <h3 style="width:30px; margin-bottom:2.5%;">2</h3>
+        <h3 style="width:30px; margin-bottom:2.5%;">3</h3>
+        <h3 style="width:30px; margin-bottom:2.5%;">4</h3>
+        <h3 style="width:30px; margin-bottom:2.5%;">5</h3>
+        <h3 style="width:30px; margin-bottom:2.5%;">6</h3>
+        <h3 style="width:30px; margin-bottom:2.5%;">7</h3>
+        <h3 style="width:30px; margin-bottom:2.5%;">8</h3>
+        <h3 style="width:30px; margin-bottom:2.5%;">9</h3>
+    </div>
+    
+    <div id="cinem" style="width:600px; margin-left:8%; margin-top:-47%;" >
+        
+        <table class="seats">
+            @for (int row = 1; row <= 9; row++)
+            {
+               
+                <tr>
+                    @for (int seat = 0; seat <= 14; seat++)
+                    {
+
+                        <td>
+                            <button class="seat" data-row="@row" data-seat="@seat" style="margin:5px;" >
+                                @($"{(row/row)  + seat}")
+                            </button>
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div id="selected-seats">
+        <h3>Выбранные места:</h3>
+        <ul id="selected-seats-list"></ul>
+        <button id="save-seats-btn">Сохранить выбранные места</button>
+    </div>
+
+    <style>
+        .cin1 {
+            /*padding: 5%;
+            margin-right: 5%;
+            margin-left: 5%;*/
+        }
+
+        .seat {
+            height: 55px;
+            width: 55px;
+        }
+        .seats{
+            margin:auto; 
+        }
+
+        #selected-seats{
+            margin-left:40%;
+            margin-right:40%;
+            margin-bottom: 3%;
+            margin-top: 3%;
+        }
+    </style>
+</div>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            var selectedSeats = [];
+
+            $(".seat").click(function () {
+                var row = $(this).data("row");
+                var seat = $(this).data("seat");
+                var seatNumber = (row - 1) * 14 + seat;
+                var sessionId = $(this).data("sessionId");
+                var userId = $(this).data("userId");
+
+                $(this).toggleClass("selected");
+
+                if ($(this).hasClass("selected")) {
+                    selectedSeats.push({ row: row, seat: seat });
+                    $("#selected-seats-list").append("<li> Ряд " + row + ", Место " + seat + "</li>");
+                } else {
+                    selectedSeats = selectedSeats.filter(function (item) {
+                        return item.row !== row || item.seat !== seat;
+                    });
+                    $("#selected-seats-list").find("li").filter(function () {
+                        return $(this).text() === "Ряд" + row + ", Место " + seat;
+                    }).remove();
+                }
+            });
+
+            var data = {
+                row: row,
+                seat: seat,
+                sessionId: sessionId,
+                userId: userId
+            };
+            $("#save-seats-btn").click(function () {
+                $.ajax({
+                    url: '@Url.Action("SaveSeatSelections", "Home")',
+                    type: 'POST',
+                    data: { seatSelections: selectedSeats },
+                    success: function (data)
+                    
+                    {
+                        console.log("Selected seats saved successfully");
+                    },
+                    error: function (error) {
+                        console.log("Error saving selected seats");
+                    }
+                });
+            });
+            var row = "A";
+            var seat = 1;
+            var sessionId = 123;
+            var userId = 456;
+
+            // Создание объекта данных для отправки на сервер
+            var data = {
+                row: row,
+                seat: seat,
+                sessionId: sessionId,
+                userId: userId
+            };
+
+            // Отправка AJAX-запроса на сервер
+            $.ajax({
+                url: '/path/to/your/endpoint', // Укажите путь к вашему серверному обработчику
+                method: 'POST', // Или другой HTTP-метод, который подходит для вашего случая
+                data: data, // Передача объекта данных
+                success: function (response) {
+                    // Обработка успешного ответа от сервера
+                    console.log('Успешно отправлено на сервер:', response);
+                },
+                error: function (error) {
+                    // Обработка ошибки при выполнении запроса
+                    console.log('Ошибка AJAX-запроса:', error);
+                }
+            });
+        });
+    </script>
+}

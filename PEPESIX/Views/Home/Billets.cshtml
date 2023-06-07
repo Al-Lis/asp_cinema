@@ -1,0 +1,262 @@
+﻿@*<div id="Toyota_Mark_II">
+    
+     <div id="RightColumn1">
+<h2>Toyota Mark II VII (X90)</h2>
+<p>Двигатель: <a href="#">2.5 л / 250 л.с. / Бензин</a> </p>
+<p>Год выпуска: <strong>1995 </strong></p>
+<p>Пробег: <strong>137 000 км </strong>.</p>
+<p>Налог: <strong>28 000 ₽ / год </strong> </p>
+<p>Привод: <strong>задний </strong> </p>
+<p>Коробка: <strong>механическая</strong> </p>
+<p>Руль: <strong>правый</strong></p>
+</div>
+<div id="LeftColumn">
+    <p>
+       <img src="https://avatars.mds.yandex.net/get-autoru-vos/2180204/de88998cc1f59bbd4d6232a8e17161d0/1200x900n" 
+       height="400" width="620"  class="mazda" />
+    </p>
+    <form action="https://auto.ru/cars/used/sale/toyota/mark_ii/1117970486-6d10509a/" target="_blank">
+    <button  onclick="https://auto.ru/cars/used/sale/nissan/silvia/1116668140-aa3ea158/" class="srcc">
+       
+         <p>
+             Перейти к объявлению
+         </p></button>
+         </form>
+         </div>
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cinema Layout</title>
+  <style>
+    .seat {
+      width: 35px;
+      height: 35px;
+      margin: 7px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Выбор мест</h1>
+  <div id="cinema"></div>
+
+  <script>
+    var seats = [
+      { number: 1, status: 'available' },
+      { number: 2, status: 'available' },
+      { number: 3, status: 'available' },
+      { number: 4, status: 'available' },
+      { number: 5, status: 'available' },
+      { number: 6, status: 'available' },
+      { number: 7, status: 'available' },
+      { number: 8, status: 'available' },
+      { number: 9, status: 'available' }
+    ];
+
+
+    function generateSeats() {
+      var cinemaDiv = document.getElementById('cinema');
+
+      for (var i = 0; i < seats.length; i++) {
+        var seat = seats[i];
+        var button = document.createElement('button');
+        button.className = 'seat';
+        button.textContent = seat.number;
+        button.addEventListener('click', toggleSeat.bind(null, i));
+        cinemaDiv.appendChild(button);
+      }
+    }
+
+    function toggleSeat(index) {
+      var seat = seats[index];
+
+      if (seat.status === 'available') {
+        seat.status = 'selected';
+      } else if (seat.status === 'selected') {
+        seat.status = 'available';
+      }
+
+      updateSeatStatus(index);
+    }
+
+    function updateSeatStatus(index) {
+      var seat = seats[index];
+      var seatButton = document.getElementsByClassName('seat')[index];
+
+      if (seat.status === 'available') {
+        seatButton.style.backgroundColor = 'green';
+      } else if (seat.status === 'selected') {
+        seatButton.style.backgroundColor = 'blue';
+      }
+    }
+
+    generateSeats();
+  </script>
+</body>
+</html>
+*@
+
+
+@model ProjectLibrary.Models.User
+
+<div class="container d-flex justify-content-center" style="margin-top:100px;">
+
+    <form id="registration-form"
+          class="w-50 border p-3 fs-4 form"
+          asp-controller="Account"
+          asp-action="Registration"
+          method="post">
+
+        <div class="row text-center">
+            <h2>
+                Регистрация нового аккаунта
+            </h2>
+            <div class="decor-line"></div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label class="fw-bold m-1">
+                    Ваша фамилия
+                </label>
+                <input type="text"
+                       asp-for="Surname"
+                       class="form-control py-2 fs-5"
+                       placeholder="Ваша фамилия">
+                <span asp-validation-for="Surname"
+                      class="text-danger">
+                </span>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label class="fw-bold m-1">
+                    Ваше имя
+                </label>
+                <input type="text"
+                       asp-for="Name"
+                       class="form-control py-2 fs-5"
+                       placeholder="Ваше имя">
+                <span asp-validation-for="Name"
+                      class="text-danger">
+                </span>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label class="fw-bold m-1"
+                       asp-for="DateBirthday">
+                    Дата рождения
+                </label>
+                <input type="date"
+                       asp-for="DateBirthday"
+                       class="form-control py-2 fs-5" />
+                <span asp-validation-for="DateBirthday"
+                      class="text-danger">
+                </span>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label class="fw-bold m-1"
+                       asp-for="PhoneNumb">
+                    Номер телефона
+                </label>
+                <input type="text"
+                       id="phone"
+                       asp-for="PhoneNumb"
+                       class="form-control py-2 fs-5"
+                       placeholder="Номер телефона">
+                <span asp-validation-for="PhoneNumb"
+                      class="text-danger">
+                </span>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label class="fw-bold m-1"
+                       asp-for="Password">
+                    Пароль
+                </label>
+                <input type="password"
+                       asp-for="Password"
+                       class="form-control py-2 fs-5 password-input"
+                       placeholder="Пароль">
+                <span asp-validation-for="Password"
+                      class="text-danger">
+                </span>
+            </div>
+        </div>
+
+        <div class="row m-3">
+            <div class="form-group">
+                <label>
+                    <input type="checkbox"
+                           id="showPassword"
+                           asp-for="Password"
+                           class="form-check-input">
+                    Показать пароль?
+                </label>
+            </div>
+        </div>
+
+        <div class="row mx-5 text-center">
+            <button type="submit"
+                    class="btn btn-danger fw-bold fs-4">
+                Зарегистрироваться
+            </button>
+            <a asp-area=""
+               asp-route-phone=""
+               asp-all-route-username=""
+               asp-controller="Account"
+               asp-action="Login"
+               class="nav-link text-dark fs-5">
+                Уже есть аккаунт? Войдите!
+            </a>
+        </div>
+    </form>
+
+</div>
+        @section Scripts {
+            <script>
+                $(document).ready(function () {
+                    $('.password-input').attr('type', 'password');
+                    $('#showPassword').change(function () {
+                        if (this.checked) {
+                            $('.password-input').attr('type', 'text');
+                        } else {
+                            $('.password-input').attr('type', 'password');
+                        }
+                    });
+                    $('#login-form').submit(function (e) {
+                        e.preventDefault();
+                        var form = $(this);
+
+                        $.ajax({
+                            url: form.attr('action'),
+                            method: form.attr('method'),
+                            data: form.serialize(),
+
+                            success: function (response) {
+                                var user = response.user
+                                alert(response.alertMessage)
+                                if (user.adminCheck === 0) {
+                                    window.location.href = '/Home/IndexAdmin';
+                                }
+                                else {
+                                    window.location.href = '/Home/Index';
+                                }
+                            },
+                            error: function (response) {
+                                console.log('Ошибка AJAX-запроса:', response);
+                            }
+                        });
+                    });
+                });
+
+            </script>
+        }

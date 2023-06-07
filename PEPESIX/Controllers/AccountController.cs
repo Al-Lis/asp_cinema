@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using pitpm_pr1.Models;
+using ProjectLibrary;
 using ProjectLibrary.Models;
 using ProjectLibrary.ViewModel;
 using System.Diagnostics;
@@ -30,6 +31,18 @@ namespace pitpm_pr1.Controllers
                     success = false,
                     alertMessage = "Пожалуйста, введите телефон!"
                 });
+            //else
+            //{
+            //    Class1.user = users;
+            //    switch (users.AdminCheck)
+            //    {
+            //        case 0:
+            //            return Redirect("/Home/IndexAdmin");
+            //        case 1:
+            //            return Redirect("/Home/Index");
+                   
+            //    }
+            //}
 
             if (string.IsNullOrEmpty(users.Password))
                 return Json(new
@@ -54,19 +67,19 @@ namespace pitpm_pr1.Controllers
                 });
 
             var findUser = await _db.Users.FirstOrDefaultAsync(x => x.PhoneNumb == users.PhoneNumb &&
-                                                                    x.Password == users.Password);
+                                                                    x.Password == users.Password && 
+                                                                    x.AdminCheck == users.AdminCheck);
 
             ManagerViewModel.CurrentUser = findUser;
             return Ok(new
             {
                 success = true,
-                alertMessage = "Успешная авторизация!",
+                alertMessage = "Успешная авторизация",
                 user = findUser
             });
         }
 
         #endregion
-
 
         #region Регистрация
 
@@ -124,6 +137,7 @@ namespace pitpm_pr1.Controllers
         }
 
         #endregion
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

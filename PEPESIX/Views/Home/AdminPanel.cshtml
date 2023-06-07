@@ -1,0 +1,86 @@
+﻿@model ProjectLibrary.Models.User
+
+@{
+    ViewData["Title"] = "Панель Администратора";
+    @*Layout = "~/Views/Shared/_LayoutAdmin.cshtml";*@
+}
+<div class="container py-5">
+    <div class="d-flex flex-column">
+        <h4>Действия</h4>
+        <div>
+            <a type="button"
+               class="btn btn-danger"
+               onclick="loadComponent('@Url.Action("IndexAdmin", "Home")')">
+                Фильмы 
+            </a>
+            <a type="button"
+               class="btn btn-danger"
+               onclick="loadComponent('@Url.Action("OrderAdminPanel", "Admin")')">
+                Сеансы
+            </a>
+            <a type="button"
+               class="btn btn-danger"
+               onclick="loadComponent('@Url.Action("MaintenanceAdminPanel", "Admin")')">
+                Обслуживание
+            </a>
+            <a type="button"
+               class="btn btn-danger"
+               onclick="loadComponent('@Url.Action("DiagnosticAdminPanel", "Admin")')">
+                Диагностика
+            </a>
+            <a type="button"
+               class="btn btn-danger"
+               onclick="loadComponent('@Url.Action("DetailingAdminPanel", "Admin")')">
+                Детейлинг
+            </a>
+            <a class="btn btn-outline-danger fs-5"
+               asp-controller="Account"
+               asp-action="Logout">
+                Выйти
+            </a>
+        </div>
+
+        <div id="componentContainer">
+            <!--Тут будет контент-->
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            let defaultComponent = '@Url.Action("UsersAdminPanel", "Admin")';
+            loadComponent(defaultComponent);
+
+            $('button').on('click', function () {
+                let componentUrl = $(this).data('component');
+                loadComponent(componentUrl);
+            });
+        });
+
+        function loadComponent(url) {
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'html',
+                success: function (data) {
+                    $('#componentContainer').html(data);
+                }
+            });
+        };
+
+        function loadComponentUserOrders(userId) {
+            console.log(userId)
+            $.ajax({
+                url: '@Url.Action("UserOrdersAdminPanel", "Admin")',
+                type: 'GET',
+                data: { id: userId },
+                dataType: 'html',
+                success: function (data) {
+                    $('#componentContainer').html(data);
+                }
+            });
+        }
+
+    </script>
+}

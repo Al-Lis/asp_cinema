@@ -1,0 +1,238 @@
+﻿<div class="modal fade"
+     id="EditFilm"
+     tabindex="-1"
+     enctype="multipart/form-data"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <form id="EditForm"
+              class="modal-content"
+              action="@Url.Action("EditFilm", "Home")
+              method="post">
+            <div class="modal-header">
+                <h5 class="modal-title"
+                    id="EditActionName">
+                    Изменение фильма
+                </h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text"
+                       class="is-hidden" д
+                       id="editFilmId"
+                       name="filmId" />
+                <input type="text"
+                       id="editFilmName"
+                       placehilder="Название фильма"
+                       name="filmName" />
+                <input type="text"
+                       class="form-control my-2 py-2 fs-5"
+                       id="editFilmDescription"
+                       placeholder="Описание фильма"
+                       name="filmDescription">
+                <input type="text"
+                       class="form-control my-2 py-2 fs-5"
+                       id="editAgeRestriction"
+                       placeholder="Возрастное ограничение"
+                       name="ageRestriction">
+                <input type="file"
+                       class="form-control my-2 py-2 fs-5"
+                       id="editFilmImage"
+                       placeholder="Выберите изображение"
+                       name="filmImage">
+                <input type="text"
+                       class="form-control my-2 py-2 fs-5 is-hidden"
+                       id="editFilmImageRepeat"
+                       placeholder="Выберите изображение"
+                       name="filmImageRepeat">
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        id="save_data"
+                        class="btn btn-outline-success"
+                        data-url="@Url.Action("EditFilm", "Home")"><!--TODO-->
+                    Сохранить
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade"
+     id="DeleteFilm"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <form id="DeleteForm"
+              class="modal-content"
+              action="@Url.Action("DeleteData", "Home")
+              method="post">
+            <div class="modal-header">
+                <h5 class="modal-title"
+                    id="EditActionName">
+                    Удаление фильма
+                </h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text"
+                       readonly
+                       class="is-hidden" д
+                       id="editFilmId"
+                       name="filmId" />
+                <input type="text"
+                       readonly
+                       id="editFilmName"
+                       placehilder="Название фильма"
+                       name="filmName" />
+                <input type="text"
+                       readonly
+                       class="form-control my-2 py-2 fs-5"
+                       id="editFilmDescription"
+                       placeholder="Описание фильма"
+                       name="filmDescription">
+                <input type="text"
+                       readonly
+                       class="form-control my-2 py-2 fs-5"
+                       id="editAgeRestriction"
+                       placeholder="Возрастное ограничение"
+                       name="ageRestriction">
+                <input type="text"
+                       readonly
+                       class="form-control my-2 py-2 fs-5"
+                       id="editFilmImageRepeat"
+                       placeholder="Выберите изображение"
+                       name="filmImageRepeat">
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        id="save_data"
+                        class="btn btn-outline-success"
+                        data-url="@Url.Action("DeleteData", "Home")">
+                    <!--TODO-->
+                    Удалить
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade"
+     id="AddFilm"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <form id="AddForm"
+              class="modal-content"
+              action="@Url.Action("AddFilm", "Home")"
+              method="post">
+            <div class="modal-header">
+                <h5 class="modal-title"
+                    id="AddActionName">
+                    Добавление фильма
+                </h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text"
+                       id="editFilmName"
+                       placehilder="Название фильма"
+                       name="filmName" />
+                <input type="text"
+                       class="form-control my-2 py-2 fs-5"
+                       id="editFilmDescription"
+                       placeholder="Описание фильма"
+                       name="filmDescription">
+                <input type="text"
+                       class="form-control my-2 py-2 fs-5"
+                       id="editAgeRestriction"
+                       placeholder="Возрастное ограничение"
+                       name="ageRestriction">
+                <input type="file"
+                       class="form-control my-2 py-2 fs-5"
+                       id="editFilmImage"
+                       placeholder="Выберите изображение"
+                       name="filmImage">
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        id="save_new_data"
+                        class="btn btn-outline-success"
+                        data-url="@Url.Action("AddFilm", "Home")">
+                    Сохранить
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal fade"
+     id="AddSession"
+     tabindex="-1"
+     enctype="multipart/form-data"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    >
+    <div class="modal-dialog modal-dialog-centered">
+        <form id="AddSessionForm"
+              class="modal-content"
+              action="@Url.Action("AddSession", "Home")
+              method="post">
+            <div class="modal-header">
+                <h5 class="modal-title"
+                    id="EditActionName">
+                    Добавление сеанса
+                </h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="text"
+                       readonly
+
+                       id="filmId"
+                       name="filmId" />
+                <input type="number"
+                       id="numberZal"
+                       placehilder="Введите номер зала"
+                       name="numberZal" />
+                <input type="number"
+                       class="form-control my-2 py-2 fs-5"
+                       id="sessionPrice"
+                       placeholder="Введите цену сеанса"
+                       name="sessionPrice">
+                <input type="datetime-local"
+                       class="form-control my-2 py-2 fs-5"
+                       id="sessionDate"
+                       placeholder="Выберите дату и время сеанса"
+                       name="sessionDate">
+            </div>
+            <div class="modal-footer">
+                <button type="button"
+                        id="save_data"
+                        class="btn btn-outline-success"
+                        data-url="@Url.Action("AddSession", "Home")">
+                    <!--TODO-->
+                    Сохранить
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

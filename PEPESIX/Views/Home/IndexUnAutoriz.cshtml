@@ -1,0 +1,57 @@
+﻿@model ProjectLibrary.Models.User
+
+@{
+    ViewData["Title"] = "Просмотр фильмов";
+    Layout = "~/Views/Shared/_LayoutUnAutoriz.cshtml";
+}
+
+
+<div>
+    <div class="card bg-info mb-3" style="max-width: 310rem; ">
+        @foreach (var item in ViewBag.Films)
+        {
+            <section>
+                <div style="margin-left:1%; margin-right:1%;">
+                    <div class="card-header" onclick="getFilmId(@item.FilmId)">
+                        <p>
+                            <h4>
+                                @item.Name
+                                <strong style="font-size: 24px; margin-left:10px; color: #6f42c1; ">@item.AgeRestriction</strong>
+
+                            </h4>
+
+                        </p>
+                    </div>
+
+                    <div class="film__card">
+                        <div class="film__card--img">
+                            <img src="~/Images/@item.Image" width="225" height="320" id="ph" style="margin-right: 30px" />
+                        </div>
+                        <div class="film__card--info">
+                            <div class="card-body film__card--info-description">
+                                <p class="card-text" style="min-width: 150px; font-size:21px;">@item.Description </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    </div>
+</div>
+
+<script>
+    function getFilmId(id) {
+        $.ajax({
+            url: '@Url.Action("GetFilmById", "Home")' + '/' + id,
+            type: 'GET',
+            success: function (data) {
+                console.log(data)
+                window.location.href = '@Url.Action("CurrentFilmUnAutoriz","Home")' + "/" + id
+            },
+            error: function (error) {
+                console.log(error)
+            }
+        });
+    }
+</script>

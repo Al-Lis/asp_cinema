@@ -1,0 +1,48 @@
+﻿@model ProjectLibrary.Models.User
+
+@{
+    ViewData["Title"] = "Панель Администратора";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<html>
+<body onload="mainFunc();">
+    <h2>Список фильмов</h2>
+    <form name="filmForm">
+        <input type="hidden" name="id" value="0" />
+        <div class="form-group col-md-5">
+            <label for="name">Название фильма:</label>
+            <input class="form-control" name="name" />
+        </div>
+        <div class="form-group col-md-5">
+            <label for="description">Описание фильма:</label>
+            <input class="form-control" name="description" />
+        </div>
+        <div class="form-group col-md-5">
+            <label for="agerestriction">Возрастное ограничение:</label>
+            <input class="form-control" name="agerestriction" />
+        </div>
+        <div class="form-group col-md-5">
+            <label for="image">Ссылка на картинку:</label>
+            <input class="form-control" name="image" />
+        </div>  
+        <div class="form-group col-md-5">
+            <button type="submit" id="submit" class="btn btn-primary">Save data</button>
+            <a id="reset" onclick="reset()" class="btn btn-primary">Clear data</a>
+        </div>
+    </form>
+    <table class="table table-condensed table-striped  col-md-6">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Название фильма</th>
+                <th>Описание фильма</th>
+                <th>Возрастное ограничение</th>
+                <th>Ссылка на картинку</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</body>
+</html>

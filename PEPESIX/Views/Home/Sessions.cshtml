@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "Cinema Layout";
+}
+
+<h2>Cinema Layout</h2>
+
+<div id="cinema">
+    @foreach (var seat in ViewBag.Seats)
+    {
+        <button class="seat @(seat.Status)" onclick="toggleSeat(@seat.Index)">
+            @seat.Number
+        </button>
+    }
+</div>
+
+@section scripts {
+    <script>
+        function toggleSeat(index) {
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("ToggleSeat", "Home")',
+                data: { index: index },
+                success: function () {
+                    updateSeatStatus(index);
+                }
+            });
+        }
+
+        function updateSeatStatus(index) {
+            var seatButton = $('.seat').eq(index);
+            seatButton.toggleClass('selected');
+        }
+    </script>
+}

@@ -1,15 +1,89 @@
+:root {
+    --bs-blue: #1ba2f6;
+    --bs-indigo: #6610f2;
+    --bs-purple: #6f42c1;
+    --bs-pink: #ea39b8;
+    --bs-red: #e44c55;
+    --bs-orange: #f1b633;
+    --bs-yellow: #ffc107;
+    --bs-green: #3cf281;
+    --bs-teal: #3f81a2;
+    --bs-cyan: #32fbe2;
+    --bs-black: #000;
+    --bs-white: #fff;
+    --bs-gray: #6c757d;
+    --bs-gray-dark: #343a40;
+    --bs-gray-100: #f8f9fa;
+    --bs-gray-200: #e9ecef;
+    --bs-gray-300: #dee2e6;
+    --bs-gray-400: #ced4da;
+    --bs-gray-500: #adb5bd;
+    --bs-gray-600: #6c757d;
+    --bs-gray-700: #495057;
+    --bs-gray-800: #343a40;
+    --bs-gray-900: #170229;
+    --bs-primary: #6f42c1;
+    --bs-secondary: #ea39b8;
+    --bs-success: #3cf281;
+    --bs-info: #1ba2f6;
+    --bs-warning: #ffc107;
+    --bs-danger: #e44c55;
+    --bs-light: #44d9e8;
+    --bs-dark: #170229;
+    --bs-primary-rgb: 111, 66, 193;
+    --bs-secondary-rgb: 234, 57, 184;
+    --bs-success-rgb: 60, 242, 129;
+    --bs-info-rgb: 27, 162, 246;
+    --bs-warning-rgb: 255, 193, 7;
+    --bs-danger-rgb: 228, 76, 85;
+    --bs-light-rgb: 68, 217, 232;
+    --bs-dark-rgb: 23, 2, 41;
+    --bs-white-rgb: 255, 255, 255;
+    --bs-black-rgb: 0, 0, 0;
+    --bs-body-color-rgb: 50, 251, 226;
+    --bs-body-bg-rgb: 26, 9, 51;
+    --bs-font-sans-serif: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    --bs-body-font-family: var(--bs-font-sans-serif);
+    --bs-body-font-size: 1rem;
+    --bs-body-font-weight: 400;
+    --bs-body-line-height: 1.5;
+    --bs-body-color: #32fbe2;
+    --bs-body-bg: #1a0933;
+    --bs-border-width: 0;
+    --bs-border-style: solid;
+    --bs-border-color: #dee2e6;
+    --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+    --bs-border-radius: 0.15rem;
+    --bs-border-radius-sm: 0.05rem;
+    --bs-border-radius-lg: 0.5rem;
+    --bs-border-radius-xl: 1rem;
+    --bs-border-radius-2xl: 2rem;
+    --bs-border-radius-pill: 50rem;
+    --bs-link-color: #32fbe2;
+    --bs-link-hover-color: #28c9b5;
+    --bs-code-color: #ea39b8;
+    --bs-highlight-bg: #fff3cd;
+}
+
 header {
     background-color: #6f42c1;
 }
+
 html {
     font-size: 15px;
     background-color: #17082f;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
+}
+
+:root {
+    color-scheme: dark;
 }
 
 html {
@@ -23,19 +97,18 @@ body {
     background-color: #17082f;
 }
 
-#N{
-    margin-left:auto;
+#N {
+    margin-left: auto;
 }
+
 a {
     white-space: nowrap;
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.6), 0 0 3px rgba(255, 255, 255, 0.5),
-        0 0 0.5rem rgba(255, 255, 255, 0.3), 0 0 2rem rgba(255, 255, 255, 0.2);
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.6), 0 0 3px rgba(255, 255, 255, 0.5), 0 0 0.5rem rgba(255, 255, 255, 0.3), 0 0 2rem rgba(255, 255, 255, 0.2);
 }
+
 .container {
     color: #44d9e8; /*צגוע רנטפעא*/
-    height:auto;
-    
-    
+    height: auto;
 }
 
 footer {
@@ -45,10 +118,12 @@ footer {
     margin-top: 100px;
     /*position:fixed;*/
 }
-.container_1{
+
+.container_1 {
     margin-left: 20px;
     margin-top: 5px;
 }
+
 #main {
     color: #6f42c1;
 }
@@ -57,13 +132,12 @@ footer {
     box-shadow: 4px 4px #BAF300, -1em 0 .4em #B90091;
     margin-top: 70px;
     margin-right: 250px;
-
-
 }
-.mazda:hover {
-    transform: scale(1.15);
 
-}
+    .mazda:hover {
+        transform: scale(1.15);
+    }
+
 .srcc {
     margin-bottom: 100px;
     margin-left: 770px;
@@ -74,26 +148,99 @@ footer {
     text-shadow: 10px;
     color: #6610f2;
 }
-#Nissan_Silvia{
-    width:60%;
+
+#ph {
 }
-#LeftColumn{
-    position:absolute;
+/*.card.border-primary {
+    box-shadow: 0 0 2px rgba(111, 66, 193, 0.9), 
+    0 0 4px rgba(111, 66, 193, 0.4), 0 0 1rem rgba(111, 66, 193, 0.3), 
+    0 0 4rem rgba(111, 66, 193, 0.1);
+}*/
+.card {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-border-width: 2px;
+    --bs-card-border-color: var(--bs-border-color-translucent);
+    --bs-card-border-radius: 0.15rem;
+    --bs-card-box-shadow: ;
+    --bs-card-inner-border-radius: calc(0.15rem - 2px);
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
+    --bs-card-cap-color: #fff;
+    --bs-card-height: auto;
+    --bs-card-color: #fff;
+    --bs-card-bg: #fff;
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    height: var(--bs-card-height);
+    word-wrap: break-word;
+    background-color: var(--bs-card-bg);
+    background-clip: border-box;
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    border-radius: var(--bs-card-border-radius);
 }
-#RightColumn{
+.card-text{
+    font-size:16px;
+}
+.border-primary {
+    --bs-border-opacity: 1;
+    border-color: rgba(var(--bs-primary-rgb), var(--bs-border-opacity)) !important;
+}
+
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+
+.card {
+    background-color: transparent;
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3), 0 0 2px rgba(255, 255, 255, 0.3), 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.card-header {
+    padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
+    margin-bottom: 5px;
+    margin-top: 5px; 
+    color: var(--bs-card-cap-color);
+    background-color: var(--bs-card-cap-bg);
+    border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
+}
+
+.card-body {
+    padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+    color: var(--bs-card-color);
+}
+
+#Nissan_Silvia {
+    width: 60%;
+}
+
+#LeftColumn {
+    position: absolute;
+}
+
+#RightColumn {
     margin-left: 40%;
-    
-    position:absolute;
+    position: absolute;
 }
+
 #RightColumn1 {
     margin-left: 50%;
     margin-top: 60px;
     position: absolute;
-    
 }
-.main_win{
-   /* border-top:*/
+
+.main_win {
+    /* border-top:*/
 }
+
 #zatemnenie {
     background: rgba(102, 102, 102, 0.5);
     width: 100%;
@@ -103,13 +250,13 @@ footer {
     left: 0;
     display: none;
 }
-#registration-form {
 
-    margin-bottom:20px;
-    margin-top:20px;
+#registration-form {
+    margin-bottom: 20px;
+    margin-top: 20px;
     width: 600px;
     height: 770px;
-    scroll-behavior:auto;
+    scroll-behavior: auto;
     text-align: center;
     padding: 15px;
     border: 3px solid #0000cc;
@@ -122,6 +269,7 @@ footer {
     margin: auto;
     background: #30115e;
 }
+
 #login-form {
     width: 600px;
     height: 550px;
@@ -129,7 +277,7 @@ footer {
     padding: 15px;
     border: 3px solid #0000cc;
     border-radius: 10px;
-    color:;
+    /*color:;*/
     top: 0;
     right: 0;
     bottom: 0;
@@ -157,41 +305,47 @@ footer {
     .close:hover {
         background: #e6e6ff;
     }
-#date{
-    height:35px;
-    width:208px;
+
+#date {
+    height: 35px;
+    width: 208px;
 }
-#phone{
-    width:186px;
+
+#phone {
+    width: 186px;
 }
-#password-input{
-    width:210px;
+
+#password-input {
+    width: 210px;
 }
-#seven{
-   font-family:Arial;
-  /* font-size:11pt;*/
+
+#seven {
+    font-family: Arial;
+    /* font-size:11pt;*/
     /*color:greenyellow;*/
 }
+
 #registr_1 {
-    margin-top:20px;
+    margin-top: 20px;
     width: 400px;
     height: 600px;
-    background-color:p;
+    background-color: p;
     color: #ffffff;
     text-align: center;
     border-radius: 10px;
-    vertical-align:central;
+    vertical-align: central;
 }
 
-#aut{
-    text-align:center;
-    font-style:oblique;
+#aut {
+    text-align: center;
+    font-style: oblique;
     font-size: 20pt;
-    
 }
+
 #Registr {
     margin-left: 370px;
 }
+
 #rectangle {
     width: 700px;
     height: 600px;
@@ -200,5 +354,25 @@ footer {
     /*margin-left: auto;
     margin-right: auto;*/
     margin-top: 38px;
-    align-self:center;
+    align-self: center;
+}
+
+.film__card {
+    display: flex;
+    flex-flow: row nowrap;
+   
+}
+
+.film__card--info-description {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.film__card--info-description p:first-child {
+    width: 85%;
+    word-break: break-all;
+}
+
+.is-hidden {
+    display: none;
 }
